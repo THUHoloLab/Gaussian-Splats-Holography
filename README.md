@@ -2,7 +2,7 @@
 This is the official implementation of Gaussian splatting holography (GSH), a groundbreaking paradigm of lensless hologracphic reconstruction methods. The GSH uses the 2D Gaussian splatting([Ref. 1](https://doi.org/10.1145/3641519.3657428), [Ref. 2](https://doi.org/10.1007/978-3-031-72673-6_18)), a novel graphic primitive, for optical field representation, parameter compression, and twin image-free holographic reconstruction. With compact 2D Gaussian representation of a lightning fast CUDA-fused differentiable rendering, the GSH achieves high imaging performance for inline holography, enabling lensless imaging for both amplitude and quantitative phase patterns. 
 
 <div align = 'center'>
-<img src = "https://github.com/THUHoloLab/Gaussian-Splats-Holography/blob/main/run.gif" width = "800" alt="" align = center />
+<img src = "https://github.com/THUHoloLab/Gaussian-Splats-Holography/blob/main/run.gif" width = "600" alt="" align = center />
 </div><br>
 
 ## Quick start
@@ -27,7 +27,7 @@ The CUDA source codes for GSH are released in "mxsplat/cuda/". If you want to ch
 ## Lightning fast Gaussian primitives
 We use MATLAB + CUDA programming for the acceleration of 2D Gauassian's rendering speed, and makes the splatting fully differentiable. Rasterization of a total of 200000 Gaussians onto an image of 2k resolution generally takes about 20~30 ms when tested on a GPU of NVIDIA RTX 3090. 
 <div align = 'center'>
-<img src = "https://github.com/THUHoloLab/Gaussian-Splats-Holography/blob/main/resources/mov1.gif" width = "800" alt="" align = center />
+<img src = "https://github.com/THUHoloLab/Gaussian-Splats-Holography/blob/main/resources/mov1.gif" width = "700" alt="" align = center />
 </div><br>
 
 ## Acknowledgments
