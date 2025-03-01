@@ -1,6 +1,10 @@
 # Gaussian Splatting Holography
 This is the official implementation of Gaussian splatting holography (GSH), a groundbreaking paradigm of lensless hologracphic reconstruction methods. The GSH uses the 2D Gaussian splatting([Ref. 1](https://doi.org/10.1145/3641519.3657428), [Ref. 2](https://doi.org/10.1007/978-3-031-72673-6_18)), a novel graphic primitive, for optical field representation, parameter compression, and twin image-free holographic reconstruction. With compact 2D Gaussian representation of a lightning fast CUDA-fused differentiable rendering, the GSH achieves high imaging performance for inline holography, enabling lensless imaging for both amplitude and quantitative phase patterns. 
 
+<div align = 'center'>
+<img src = "https://github.com/THUHoloLab/FAIRY/blob/main/Demo/resource/ptycho.gif" width = "800" alt="" align = center />
+</div><br>
+
 ## Quick start
 ### Requirements
 * An NVIDIA GPU; All shown results come from an RTX 3090.
