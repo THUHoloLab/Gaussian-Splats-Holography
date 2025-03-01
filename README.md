@@ -25,7 +25,7 @@ The CUDA source codes for GSH are released in "mxsplat/cuda/". If you want to ch
 * Windows Kits 10.0.26100.0 (higher version may be available but not tested)
 
 ## Lightning fast Gaussian primitives
-We use MATLAB + CUDA programming for the acceleration of 2D Gauassian's rendering speed, and makes the splatting fully differentiable. Rasterization of a total of 200000 Gaussians onto an image of 2k resolution generally takes about 20~30 ms when tested on a GPU of NVIDIA RTX 3090. 
+We use MATLAB + CUDA programming for the acceleration of 2D Gauassian's rendering speed, and make the splatting fully differentiable. Rasterization of a total of 200000 Gaussians onto an image of 2k resolution generally takes about 20~30 ms when tested on a GPU of NVIDIA RTX 3090. 
 <div align = 'center'>
 <img src = "https://github.com/THUHoloLab/Gaussian-Splats-Holography/blob/main/resources/mov1.gif" width = "700" alt="" align = center />
 </div><br>
