@@ -24,6 +24,6 @@ The CUDA source codes for GSH are released in "mxsplat/cuda/". If you want to ch
 We use MATLAB + CUDA programming for the acceleration of 2D Gauassian's rendering speed, and makes the splatting fully differentiable. Rasterization of a total of 200000 Gaussians onto an image of 2k resolution generally takes about 20~30 ms when tested on a GPU of NVIDIA RTX 3090. 
 
 ## Acknowledgments
-Our code was developed based on gsplat ([[Codes]](https://github.com/nerfstudio-project/gsplat) [[Paper]](https://arxiv.org/abs/2409.06765) [[Project page]](https://docs.gsplat.studio/main/)) and GaussianImage ([[Codes]](https://github.com/Xinjie-Q/GaussianImage)).
+Our code was developed based on gsplat ([[Codes]](https://github.com/nerfstudio-project/gsplat) [[Paper]](https://arxiv.org/abs/2409.06765) [[Project page]](https://docs.gsplat.studio/main/)) and GaussianImage ([[Codes]](https://github.com/Xinjie-Q/GaussianImage) [[Paper]](https://doi.org/10.1007/978-3-031-72673-6_18)).
 
 
