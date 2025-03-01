@@ -8,8 +8,8 @@ addpath(genpath("mxsplat"));
 
 img = single(imread("cameraman.tif"))/255;
 img = mean(img,3);
-img = imresize(img,[256,384]);
-img = padarray(img,[96,96],'both');
+img = imresize(img,[256,256]);
+img = padarray(img,[128,128],'both');
 
 upsam = 1;
 
@@ -17,7 +17,7 @@ img_sz = size(img);
 get_GPU = gpuDevice();
 
 % init Gaussian splatting hologram
-num_Gaussian = 4000;
+num_Gaussian = 4500;
 GSH_model = dlnetwork([
                         inputLayer(([1,num_Gaussian]),'UU');
                         gSplat_Hologram("device", get_GPU,...
@@ -26,7 +26,7 @@ GSH_model = dlnetwork([
 
 diffractor_u = diffractor("pix_size", 2.7,...
                           "lambda",   0.532,...
-                          "toz",      2520,...
+                          "toz",      6000,...
                           "img_sz",   img_sz);
 
 prop = diffractor_u.set_propagation();
@@ -38,8 +38,8 @@ img_GT = dlarray(gpuArray(img_GT));
 
 iter = 0;
 iter_max = 4800;
-optimizer = optimizer_adabelief();
-lr = 0.01;
+optimizer = optimizer_AdaBelief();
+lr = 0.006;
 
 %% Main training loop
 while iter < iter_max
@@ -55,16 +55,16 @@ while iter < iter_max
                                           lr);
 
     %Adaptive Gaussian density
-    % if mod(iter,10) == 0
-    %     [GSH_model, optimizer, num_Gaussian] = ...
-    %                         adaptive_Gaussian(GSH_model,...
-    %                                           optimizer,...
-    %                                           grad);
-    % end
-    % 
-    % fprintf("at %d-iter, 2d gs takes: %4.5f, " + ...
-    %         "loss: %4.4f, remain gs: %d, \n",iter, tt, loss, num_Gaussian);
-    % 
+    if mod(iter,10) == 0
+        [GSH_model, optimizer, num_Gaussian] = ...
+                            adaptive_Gaussian(GSH_model,...
+                                              optimizer,...
+                                              grad);
+    end
+
+    fprintf("at %d-iter, 2d gs takes: %4.5f, " + ...
+            "loss: %4.4f, remain gs: %d, \n",iter, tt, loss, num_Gaussian);
+
     if mod(iter,5) == 1
         figure(122);
         imshow(img_out{1},[]);
