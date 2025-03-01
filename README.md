@@ -13,7 +13,7 @@ This is the official implementation of Gaussian splatting holography (GSH), a gr
 ### Test the code
 * Clone this repository, and run "main_gsh.m" in MATLAB, the code begins reconstruction of a simulated samples.
 * Different simulation results is available by tuning the parameters including wavelength, diffraction distance, and pixel size.
-* run "rendering_single.m" if you want to test the Gaussian primitive for rendering of a single image.
+* Run "rendering_single.m" if you want to test the Gaussian primitive for rendering of a single image.
 
 ### To build the codes
 > ".mexw64" files are compiled cuda codes use "mexcuda" in MATLAB. <br>
