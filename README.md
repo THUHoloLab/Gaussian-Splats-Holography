@@ -12,8 +12,8 @@ This is the official implementation of Gaussian splatting holography (GSH), a gr
 * run "rendering_single.m" if you want to test the Gaussian primitive for rendering of a single image.
 
 ### To build the codes
-* ".mexw64" files are compiled cuda codes use "mexcuda" in MATLAB. 
-* ".mexw64" works as a normal function that can be called by MATLAB. 
+> ".mexw64" files are compiled cuda codes use "mexcuda" in MATLAB. 
+> ".mexw64" works as a normal function that can be called by MATLAB. 
 
 The CUDA source codes for GSH are released in "mxsplat/cuda/". If you want to change the CUDA codes and compile the to generate ".mexw64" files, you will need:
 * CUDA v12.8
