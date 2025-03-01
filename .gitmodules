@@ -4,3 +4,6 @@
 [submodule "Gaussian-Splats-Holography/tree/main/codes/mxsplat/cuda/thrid_party"]
 	path = Gaussian-Splats-Holography/tree/main/codes/mxsplat/cuda/thrid_party
 	url = https://github.com/g-truc/glm.git
+[submodule "Gaussian-Splats-Holography/codes/mxsplat/cuda/thrid_party"]
+	path = Gaussian-Splats-Holography/codes/mxsplat/cuda/thrid_party
+	url = https://github.com/g-truc/glm.git
