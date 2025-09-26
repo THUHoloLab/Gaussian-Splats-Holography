@@ -14,7 +14,7 @@ img_sz = size(img);
 get_GPU = gpuDevice();
 
 % init Gaussian splatting hologram
-num_Gaussian = 4500;
+num_Gaussian = 5000;
 GSH_model = dlnetwork([
                         inputLayer(([1,num_Gaussian]),'UU');
                         mxsplat.gSplat_Hologram("device", get_GPU,...
@@ -35,8 +35,8 @@ img_GT = dlarray(gpuArray(img_GT));
 
 iter = 0;
 iter_max = 4800;
-optimizer = optimizers.Adam(0.9,0.999);
-lr = 0.007;
+optimizer = optimizers.Adam(0.9,0.999,1e-15);
+lr = 0.01;
 
 %% Main training loop
 while iter < iter_max
@@ -52,7 +52,7 @@ while iter < iter_max
                                           lr);
 
     %Adaptive Gaussian density
-    if mod(iter,10) == 0
+    if (mod(iter,10) == 0) && (num_Gaussian < 50000)
         [GSH_model, optimizer, num_Gaussian] = ...
                             adaptive_Gaussian(GSH_model,...
                                               optimizer,...
