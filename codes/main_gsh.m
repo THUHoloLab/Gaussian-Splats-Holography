@@ -3,9 +3,6 @@ clear
 
 reset(gpuDevice());
 
-addpath(genpath("optimizers"));
-addpath(genpath("mxsplat"));
-
 img = single(imread("cameraman.tif"))/255;
 img = mean(img,3);
 img = imresize(img,[256,256]);
@@ -20,11 +17,11 @@ get_GPU = gpuDevice();
 num_Gaussian = 4500;
 GSH_model = dlnetwork([
                         inputLayer(([1,num_Gaussian]),'UU');
-                        gSplat_Hologram("device", get_GPU,...
+                        mxsplat.gSplat_Hologram("device", get_GPU,...
                                         "img_sz", img_sz);
                     ]);
 
-diffractor_u = diffractor("pix_size", 2.7,...
+diffractor_u = mxsplat.diffractor("pix_size", 2.7,...
                           "lambda",   0.532,...
                           "toz",      6000,...
                           "img_sz",   img_sz);
@@ -38,8 +35,8 @@ img_GT = dlarray(gpuArray(img_GT));
 
 iter = 0;
 iter_max = 4800;
-optimizer = optimizer_AdaBelief();
-lr = 0.006;
+optimizer = optimizers.Adam(0.9,0.999);
+lr = 0.007;
 
 %% Main training loop
 while iter < iter_max
@@ -79,8 +76,6 @@ end
 
 save('results/test_non.mat','GSH_model','img_out');
 
-rmpath(genpath("optimizers"));
-rmpath(genpath("gsplat"));
 reset(gpuDevice());
 
 
